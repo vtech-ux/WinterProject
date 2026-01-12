@@ -3,24 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Winter AI Demo</title>
+  <title>Winter AI — Frontend ML</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Winter AI — Snowiness Predictor</h1>
-    <div class="controls">
-      <label>Temperature (°C): <input type="number" id="temp" value="-5" step="0.1"></label>
-      <label>Humidity (%): <input type="number" id="hum" value="80" step="1"></label>
-      <button id="predictBtn">Predict Snowiness</button>
+  <div class="hero">
+    <div class="overlay">
+      <h1>Winter AI — In-Browser ML & Visuals</h1>
+      <p class="lead">Train a tiny model client-side (TensorFlow.js) and watch the winter scene react.</p>
+      <div class="controls">
+        <div class="control-row">
+          <label>Temperature (°C)
+            <input id="temp" type="range" min="-30" max="10" step="0.1" value="-5">
+            <span id="tempVal">-5</span>
+          </label>
+          <label>Humidity (%)
+            <input id="hum" type="range" min="0" max="100" step="1" value="80">
+            <span id="humVal">80</span>
+          </label>
+        </div>
+        <div class="control-row">
+          <button id="trainBtn">Train Model (in-browser)</button>
+          <button id="predictBtn">Predict</button>
+          <select id="modelType">
+            <option value="tf">TensorFlow.js (neural net)</option>
+            <option value="heuristic">Heuristic (fast)</option>
+          </select>
+        </div>
+      </div>
     </div>
-
-    <div id="result" class="result">Make a prediction to see winter magic.</div>
-
-    <div id="visuals" class="visuals"></div>
-
-    <p class="note">This demo trains a tiny model on synthetic winter data (temperature + humidity).</p>
   </div>
+
+  <main class="container">
+    <section class="status">
+      <div id="result" class="result">Model not trained yet.</div>
+      <div id="metrics" class="metrics"></div>
+    </section>
+
+    <section id="visuals" class="visuals" aria-hidden="false"></section>
+
+    <section class="explain">
+      <h2>About this demo</h2>
+      <p>This is an entirely client-side demo. The model is trained on synthetic data in your browser. The JavaScript intentionally demonstrates <strong>for</strong>, <strong>while</strong>, and <strong>switch</strong> constructs as part of the interactive behavior.</p>
+    </section>
+  </main>
+
+  <!-- TensorFlow.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

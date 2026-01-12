@@ -1,13 +1,24 @@
 :root{--bg:#0f1724;--card:#0b1220;--accent:#81d4fa;--text:#e6f1ff}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#071023 0%,#0b1b2b 70%);color:var(--text);min-height:100vh}
-.container{max-width:900px;margin:40px auto;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px}
-h1{margin:0 0 12px}
-.controls{display:flex;gap:12px;align-items:center;margin-bottom:14px}
-.controls label{font-size:14px}
-.controls input{margin-left:8px;padding:6px 8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+.container{max-width:1100px;margin:28px auto;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px}
+.hero{height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#041028,#072033);position:relative;overflow:hidden}
+.hero .overlay{max-width:1100px;padding:28px 24px;text-align:center}
+.hero h1{margin:0;font-size:28px}
+.lead{color:rgba(230,241,255,0.9);margin-top:6px}
+.controls{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.control-row{display:flex;gap:12px;align-items:center}
+label{font-size:14px}
+input[type=range]{width:220px}
 button{padding:8px 14px;border-radius:8px;border:none;background:var(--accent);color:#012;cursor:pointer}
-.result{margin:12px 0;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
-.visuals{position:relative;height:260px;overflow:hidden;border-radius:8px;background:linear-gradient(180deg,#081424,#072033);box-shadow:inset 0 0 60px rgba(0,0,0,0.5)}
-.snowflake{position:absolute;color:white;user-select:none;font-size:18px;opacity:0.9}
-.note{font-size:13px;color:rgba(230,241,255,0.8);margin-top:12px}
+.status{display:flex;gap:18px;align-items:flex-start}
+.result{flex:1;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
+.metrics{min-width:200px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);text-align:left}
+.visuals{position:relative;height:360px;overflow:hidden;border-radius:8px;background:linear-gradient(180deg,#071f31,#031023);box-shadow:inset 0 0 80px rgba(0,0,0,0.6);margin-top:18px}
+.flake{position:absolute;color:white;user-select:none;font-size:18px;opacity:0.95;will-change:transform}
+.explain{margin-top:18px;padding:12px;background:rgba(255,255,255,0.02);border-radius:8px}
+
+@media (max-width:800px){
+	.control-row{flex-direction:column}
+	input[type=range]{width:180px}
+}
