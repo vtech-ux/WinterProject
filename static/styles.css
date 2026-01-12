@@ -22,3 +22,23 @@ button{padding:8px 14px;border-radius:8px;border:none;background:var(--accent);c
 	.control-row{flex-direction:column}
 	input[type=range]{width:180px}
 }
+
+/* New layout for sidebar + main panel */
+.container{display:flex;flex-direction:row;gap:18px}
+.sidebar{width:320px;display:flex;flex-direction:column;gap:12px}
+.main-panel{flex:1}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:8px}
+.card.small{padding:10px}
+.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.controls-inline{display:flex;gap:12px;align-items:center}
+.top-row{display:flex;gap:18px;align-items:flex-start}
+.charts{display:flex;gap:12px;width:100%}
+.chart{flex:1;height:160px;background:linear-gradient(180deg,#06131b,#081822);border-radius:8px}
+.metrics{font-size:13px;color:rgba(230,241,255,0.9)}
+.result{font-weight:600}
+
+@media (max-width:1000px){
+	.container{flex-direction:column}
+	.sidebar{width:auto}
+	.charts{flex-direction:column}
+}

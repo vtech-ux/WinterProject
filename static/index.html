@@ -35,16 +35,59 @@
   </div>
 
   <main class="container">
-    <section class="status">
-      <div id="result" class="result">Model not trained yet.</div>
-      <div id="metrics" class="metrics"></div>
-    </section>
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Controls</h3>
+        <label>Model type
+          <select id="modelType">
+            <option value="tf">TensorFlow.js (deep net)</option>
+            <option value="heuristic">Heuristic (fast)</option>
+          </select>
+        </label>
+        <label>Training size: <span id="trainSizeVal">2500</span>
+          <input id="trainSize" type="range" min="500" max="10000" step="500" value="2500">
+        </label>
+        <label>Epochs: <input id="epochs" type="number" min="5" max="200" value="50"></label>
+        <label>Batch size: <input id="batchSize" type="number" min="8" max="512" value="64"></label>
+        <div class="buttons">
+          <button id="trainBtn">Train</button>
+          <button id="stopBtn" disabled>Stop</button>
+          <button id="saveBtn" disabled>Save Model</button>
+          <button id="downloadBtn" disabled>Download Model</button>
+          <button id="loadBtn">Load Model</button>
+        </div>
+      </div>
+      <div class="card small">
+        <h4>Live Metrics</h4>
+        <div id="result" class="result">Model not trained.</div>
+        <div id="metrics" class="metrics"></div>
+      </div>
+    </aside>
 
-    <section id="visuals" class="visuals" aria-hidden="false"></section>
+    <section class="main-panel">
+      <div class="top-row">
+        <div class="controls-inline">
+          <label>Temperature
+            <input id="temp" type="range" min="-30" max="10" step="0.1" value="-5">
+            <span id="tempVal">-5</span>
+          </label>
+          <label>Humidity
+            <input id="hum" type="range" min="0" max="100" step="1" value="80">
+            <span id="humVal">80</span>
+          </label>
+        </div>
+        <div class="charts" id="charts">
+          <div id="lossChart" class="chart"></div>
+          <div id="accChart" class="chart"></div>
+        </div>
+      </div>
 
-    <section class="explain">
-      <h2>About this demo</h2>
-      <p>This is an entirely client-side demo. The model is trained on synthetic data in your browser. The JavaScript intentionally demonstrates <strong>for</strong>, <strong>while</strong>, and <strong>switch</strong> constructs as part of the interactive behavior.</p>
+      <div id="visuals" class="visuals" aria-hidden="false"></div>
+
+      <section class="explain">
+        <h2>About this demo</h2>
+        <p>This is an entirely client-side demo. The model is trained on synthetic data in your browser. It now uses more synthetic features, normalization, a deeper neural network, live training charts, model persistence (IndexedDB), and downloadable model artifacts.</p>
+      </section>
     </section>
   </main>
 
